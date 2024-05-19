@@ -13,7 +13,19 @@ public class EmployeeLoginDTO implements Serializable {
     @ApiModelProperty("用户名")
     private String username;
 
-    @ApiModelProperty("密码")
+    @ApiModelProperty("主键ID")
+    private Long id;
+
+    @ApiModelProperty("姓名")
+    private String name;
+
     private String password;
+
+    private String phone;
+
+    private String sex;
+
+    private String idNumber;
+
 
 }
