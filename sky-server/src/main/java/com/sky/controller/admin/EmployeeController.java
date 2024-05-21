@@ -1,6 +1,7 @@
 package com.sky.controller.admin;
 
 import com.sky.constant.JwtClaimsConstant;
+import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
@@ -81,7 +82,6 @@ public class EmployeeController {
      * @param employeeLoginDTO
      * @return
      */
-
     @PostMapping
     @ApiOperation("新增员工")
     public Result save(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
@@ -89,7 +89,6 @@ public class EmployeeController {
         employeeService.sava(employeeLoginDTO);
         return Result.success();
     }
-
     /**
      * 员工分页查询
      * @param employeePageQueryDTO
@@ -112,5 +111,26 @@ public class EmployeeController {
         employeeService.startOrStop(status,id);
         return Result.success();
     }
+    /**
+     * 根据id查询员工
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询员工信息")
+    public Result<Employee> getById(@PathVariable Long id){
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
 
+    }
+    /**
+     * 编辑员工信息
+     * @param employeeDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("编辑员工信息")
+    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+        log.info("编辑员工信息:{}",employeeDTO);
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
 }
