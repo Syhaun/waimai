@@ -6,3 +6,8 @@ sky:
     database: waimai
     username: root
     password: Syhaun
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5tBneYqHmXXu2tpX1a55
+    access-key-secret: YPs9A4ubgZaj8WdPmGzrfMq5nck0oM
+    bucket-name: syhaun
